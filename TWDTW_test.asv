@@ -1,0 +1,18 @@
+% TWDTW TEST
+clear; close all; clc;
+
+[X, ii] = genTimeSeries('plot', 1, 'shuffle', 1);
+myX = myX(X, 'plot', 1, 'ii', ii);
+
+cost = [];
+for n = 1 : 12
+    cost = [cost, TWDTW(X{1}, X{n}, myX{1}, myX{n})];
+end
+
+[sorted_cost, sort_idx] = sort(cost);
+
+figure;
+for n = 1 : 12
+    subplot(2, 6, n);
+    plot(X)
+end

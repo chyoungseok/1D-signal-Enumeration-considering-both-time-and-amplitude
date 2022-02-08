@@ -1,6 +1,12 @@
-function myX = myX(X, ii, varargin)
+function myX = myX(X, varargin)
     if sum(strcmp(varargin, 'plot'))
         plot_flag = varargin{circshift(strcmp(varargin, 'plot'), 1)};
+    end
+
+    if sum(strcmp(varargin, 'ii'))
+        ii = varargin{circshift(strcmp(varargin, 'ii'), 1)};
+    else
+        ii = 1 : length(X);
     end
 
     for i = 1:length(X)
@@ -20,5 +26,6 @@ function myX = myX(X, ii, varargin)
             ylim([-0.1 50.1])
             title(['X', num2str(ii(n))], 'FontSize', 20)
         end
+        sgtitle('Multiply time and amplitude')
     end
 end

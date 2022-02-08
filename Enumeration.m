@@ -17,10 +17,12 @@ function sorted_X = Enumeration(varargin)
     sorted_X = X(sort_idx);
 
     if plot_flag == 1
+        figure;
         for n = 1 : length(sorted_X)
             subplot(2, length(X)/2, n)
-            plot(sorted_X{n}); ylim([-0.1, 1.1])
+            plot(sorted_X{n}); ylim([-0.1, 5+1.1])
             title(['X', num2str(n)], 'FontSize', 20)
         end
+        sgtitle('Sorted Result', 'FontSize', 20)
     end
 end
